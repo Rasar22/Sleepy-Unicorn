@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Flask Webpage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    
+    <header>
+        <h1>Welcome to My Flask Webpage</h1>
+    </header>
+    <p>This is a simple webpage powered by Flask.</p>
 </body>
 </html>
