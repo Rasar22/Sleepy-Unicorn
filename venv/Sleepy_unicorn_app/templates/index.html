@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sleepy Unicorn</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-</head>
-<body>
-    <header>
-        <h1>Welcome to Sleepy Unicorn</h1>
-    </header>
-    <p>This is my superduper blog.</p>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Welcome to my blog Sleepy Unicorn</h2>
+    <p>This is the home page of the blog. Explore and enjoy!</p>
+{% endblock %}
