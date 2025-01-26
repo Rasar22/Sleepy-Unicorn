@@ -9,18 +9,24 @@
 <body>
     <header>
         <div class="container">
-            <h1>Sleepy Unicorn</h1>
-            <nav>
-                <ul class="nav-links">
+            <div class="branding">
+                <a href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='/images/logo.png') }}" alt="Logo" class="logo">
+                </a>
+                <h1 class="site-title">Sleepy Unicorn</h1>
+            </div>
+            <div class="menu-toggle">&#9776;</div>
+            <nav class="nav-links">
+                <ul>
                     <li><a href="{{ url_for('index') }}">Home</a></li>
                     <li><a href="{{ url_for('start_here') }}">Start Here</a></li>
                     <li><a href="#">Blog</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
-                <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
             </nav>
         </div>
+      
     </header>
 
     <main>
