@@ -42,6 +42,7 @@
         font-size: 2rem;  /* Adjust the font size */
         margin: 0;        /* Remove default margins */
         font-weight: bold;
+        
     }
     
     /* Navigation menu */
@@ -117,4 +118,5 @@
     .menu-toggle {
         display: block;  /* Show menu icon on small screens */
     }
+}
 }
