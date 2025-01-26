@@ -30,11 +30,6 @@
     <footer>
         <p>&copy; 2025 Sleepy Unicorn</p>
     </footer>
-    <script>
-        function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('active');
-        }
-    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

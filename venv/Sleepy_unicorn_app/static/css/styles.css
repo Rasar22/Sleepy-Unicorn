@@ -1,6 +1,6 @@
 /* Define global color variables inside :root */
 :root {
-    --primary-color: navy;
+    --primary-color: #000435;
     --secondary-color: white;
     --accent-color: gray;
     --highlight-color: #EFA3C8;  /* Blush Pink */
@@ -94,7 +94,7 @@
     .nav-links {
         display: none;
         flex-direction: column;
-        background: #444;
+        background: var(--accent-color);
         width: 100%;
         position: absolute;
         top: 60px;
