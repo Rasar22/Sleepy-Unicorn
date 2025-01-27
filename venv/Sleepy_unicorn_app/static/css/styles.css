@@ -83,7 +83,7 @@
     
     /* Button Styling */
     button {
-        background-color: var(--highlight-color);
+        background-color: var(--primary-color);
         color: var(--secondary-color);
         border: none;
         padding: 10px 20px;
@@ -93,6 +93,21 @@
     button:hover {
         background-color: var(--accent-color);
     }
+
+    /* Footer */
+    footer {
+    p {
+        color: var(--background-color);
+    }
+
+        text-align: center;
+        padding: 25px;
+        background-color: var(--primary-color);  
+        color: var(--background-color);
+        font-size: 1.1em;
+        margin-top: 50px;
+    }
+
  /* Responsive styles */
 @media (max-width: 768px) {
     .nav-links {
