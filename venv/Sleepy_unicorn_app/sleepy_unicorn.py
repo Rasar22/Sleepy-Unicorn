@@ -12,7 +12,7 @@ def start_here():
     return render_template('start_here.html', title="Start Here")
 
 @app.route('/blog')
-def about():
+def blog():
     return render_template('blog.html')
 
 @app.route('/about')
