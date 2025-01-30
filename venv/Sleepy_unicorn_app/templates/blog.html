@@ -1,5 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<h2>Blog Posts</h2>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <h3><a href="{{ url_for('blog_post', post_id=post.id) }}">{{ post.title }}</a></h3>
+                <p><small>{{ post.date }}</small></p>
+                <p>{{ post.content[:150] }}...</p> <!-- Show preview of post -->
+                <a href="{{ url_for('blog_post', post_id=post.id) }}">Read More</a>
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}
