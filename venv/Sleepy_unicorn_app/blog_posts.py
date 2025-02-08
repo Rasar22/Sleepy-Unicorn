@@ -1,7 +1,7 @@
 blog_posts = [
     {
         "id": 1,
-        "title": "First Blog Post",
+        "title": "First 1Blog Post",
         "date": "2025-01-28",
         "content": "This is the content of the first blog post.",
     },
