@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for, flash
+from flask_mail import Mail, Message
 from blog_posts import blog_posts
 
 app = Flask(__name__)
