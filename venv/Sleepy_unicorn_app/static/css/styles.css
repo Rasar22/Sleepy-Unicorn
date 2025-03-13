@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Raleway:wght@400;700&display=swap');
+
 /* Define global color variables inside :root */
 :root {
     --primary-color:#1A1F33;
@@ -7,11 +11,25 @@
     --text-color: #333;
     --background-color: #f4f4f4;
     body {
-        font-family: Arial, sans-serif;
+        font-family: 'Raleway', sans-serif;
         background-color: var(--background-color);
         color: var(--text-color);
         margin: 0;
         padding: 0;
+    }
+   
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Raleway', sans-serif;
+        margin: 1%;
+        
+    }
+    p {
+        font-family: 'Merriweather', sans-serif; 
+        margin: 1%; 
+    }
+
+    a {
+        font-family: 'Merriweather', sans-serif;
     }
 
     /* Style the header */
