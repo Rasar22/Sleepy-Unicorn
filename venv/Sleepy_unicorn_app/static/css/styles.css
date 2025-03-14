@@ -17,17 +17,23 @@
         margin: 0;
         padding: 0;
     }
-   
+    
+   /* Headers styling */
     h1, h2, h3, h4, h5, h6 {
         font-family: 'Raleway', sans-serif;
         margin: 1%;
         
     }
+
+    /* Paragraph Styling */
     p {
         font-family: 'Merriweather', sans-serif; 
-        margin: 1%; 
+        font-size: 18px;
+        color: var(--text-color);
+        margin: 1%;
     }
-
+    
+    /* Link styling */
     a {
         font-family: 'Merriweather', sans-serif;
     }
@@ -91,13 +97,7 @@
         font-size: 2rem;
         cursor: pointer;
         color:  var(--background-color);
-    }
-    
-    /* Paragraph Styling */
-    p {
-        font-size: 18px;
-        color: var(--text-color);
-    }
+    }  
     
     /* Button Styling */
     button {
