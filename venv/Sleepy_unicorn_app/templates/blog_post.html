@@ -1,3 +1,4 @@
+<!--
 {% extends "base.html" %}
 
 {% block title %}{{ post.title }}{% endblock %}
@@ -8,5 +9,18 @@
         <p><small>{{ post.date }}</small></p>
         <p>{{ post.content }}</p>
     </article>
+    <a href="{{ url_for('blog') }}">Back to Blog</a>
+{% endblock %}
+-->
+{% extends 'base.html' %}
+{% block content %}
+    <h1>{{ post.title }}</h1>
+    <p><strong>Date:</strong> {{ post.date }}</p>
+    <div>{{ post.content | safe }}</div>
+    <a href="{{ url_for('edit_post', post_id=post.id) }}">Edit</a>
+    <form action="{{ url_for('delete_post', post_id=post.id) }}" method="POST" style="display:inline;">
+        <button type="submit">Delete</button>
+    </form>
+    <br><br>
     <a href="{{ url_for('blog') }}">Back to Blog</a>
 {% endblock %}
