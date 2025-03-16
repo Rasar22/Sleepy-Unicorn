@@ -100,6 +100,18 @@ class BlogPost(db.Model):
 def index():
     return render_template('index.html', title="Home")
 
+@app.route('/start-here')
+def start_here():
+    return render_template('start_here.html', title="Start Here")
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
 @app.route('/blog')
 def blog():
     posts = BlogPost.query.all()
