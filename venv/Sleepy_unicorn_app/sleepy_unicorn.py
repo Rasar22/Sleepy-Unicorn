@@ -89,6 +89,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'your_secret_key'
 db = SQLAlchemy(app)
+app.jinja_env.cache = {}
 
 class BlogPost(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -112,7 +113,7 @@ def about():
 def contact():
     return render_template('contact.html')
 
-@app.route('/blog')
+@app.route("/blog")
 def blog():
     posts = BlogPost.query.all()
     return render_template("blog.html", posts=posts)
