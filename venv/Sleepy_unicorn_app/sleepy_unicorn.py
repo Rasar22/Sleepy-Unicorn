@@ -1,3 +1,4 @@
+"""
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mail import Mail, Message
 from blog_posts import blog_posts
@@ -42,7 +43,7 @@ def about():
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
-
+"""
 """
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
@@ -71,8 +72,93 @@ if __name__ == '__main__':
     app.run(debug=True)
     
     """
-
+"""
    
 if __name__ == '__main__':
     app.run(debug=True)
-    
+ """   
+""" 
+ ***************************************************
+"""
+
+from flask import Flask, render_template, request, redirect, url_for, flash
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.secret_key = 'your_secret_key'
+db = SQLAlchemy(app)
+app.jinja_env.cache = {}
+
+class BlogPost(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(200), nullable=False)
+    date = db.Column(db.String(10), nullable=False)
+    content = db.Column(db.Text, nullable=False)
+
+@app.route('/')
+def index():
+    return render_template('index.html', title="Home")
+
+@app.route('/start-here')
+def start_here():
+    return render_template('start_here.html', title="Start Here")
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+@app.route("/blog")
+def blog():
+    posts = BlogPost.query.all()
+    return render_template("blog.html", posts=posts)
+
+@app.route("/blog/<int:post_id>")
+def blog_post(post_id):
+    post = BlogPost.query.get_or_404(post_id)
+    return render_template("blog_post.html", post=post)
+
+@app.route('/blog/new', methods=['GET', 'POST'])
+def new_post():
+    if request.method == 'POST':
+        title = request.form['title']
+        date = request.form['date']
+        content = request.form['content']
+        new_post = BlogPost(title=title, date=date, content=content)
+        db.session.add(new_post)
+        db.session.commit()
+        flash('Post created successfully!', 'success')
+        return redirect(url_for('blog'))
+    return render_template('new_post.html')
+
+@app.route('/blog/edit/<int:post_id>', methods=['GET', 'POST'])
+def edit_post(post_id):
+    post = BlogPost.query.get_or_404(post_id)
+    if request.method == 'POST':
+        post.title = request.form['title']
+        post.date = request.form['date']
+        post.content = request.form['content']
+        db.session.commit()
+        flash('Post updated successfully!', 'success')
+        return redirect(url_for('blog'))
+    return render_template('edit_post.html', post=post)
+
+@app.route('/blog/delete/<int:post_id>', methods=['POST'])
+def delete_post(post_id):
+    post = BlogPost.query.get_or_404(post_id)
+    db.session.delete(post)
+    db.session.commit()
+    flash('Post deleted successfully!', 'success')
+    return redirect(url_for('blog'))
+
+if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
+    app.run(debug=True)
+
